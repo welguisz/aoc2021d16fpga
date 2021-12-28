@@ -1,0 +1,473 @@
+$date
+	Tue Dec 28 13:24:52 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module number_test $end
+$var wire 64 ! number [63:0] $end
+$var reg 1 " clk $end
+$var reg 1 # enable $end
+$var reg 1 $ failed $end
+$var reg 80 % numberFromBits [79:0] $end
+$var reg 1 & resetB $end
+$scope module number_top $end
+$var wire 1 " clk $end
+$var wire 1 # enable $end
+$var wire 80 ' numberFromBits [79:0] $end
+$var wire 1 & resetB $end
+$var wire 64 ( number [63:0] $end
+$var wire 16 ) nibbleChain [15:0] $end
+$var wire 64 * data [63:0] $end
+$scope module number_brian $end
+$var wire 1 " clk $end
+$var wire 1 # enable $end
+$var wire 64 + inputNumber [63:0] $end
+$var wire 1 & resetB $end
+$var wire 64 , sixteenNibblesEnabled [63:0] $end
+$var wire 17 - validNibbles [16:0] $end
+$var wire 64 . twoNibblesEnabled [63:0] $end
+$var wire 64 / twelveNibblesEnabled [63:0] $end
+$var wire 64 0 threeNibblesEnabled [63:0] $end
+$var wire 64 1 thirteenNibblesEnabled [63:0] $end
+$var wire 64 2 tenNibblesEnabled [63:0] $end
+$var wire 64 3 sixNibblesEnabled [63:0] $end
+$var wire 64 4 sevenNibblesEnabled [63:0] $end
+$var wire 64 5 oneNibbleEnabled [63:0] $end
+$var wire 64 6 nineNibblesEnabled [63:0] $end
+$var wire 64 7 fourteenNibblesEnabled [63:0] $end
+$var wire 64 8 fourNibblesEnabled [63:0] $end
+$var wire 64 9 fiveNibblesEnabled [63:0] $end
+$var wire 64 : fifteenNibblesEnabled [63:0] $end
+$var wire 64 ; elevenNibblesEnabled [63:0] $end
+$var wire 64 < eightNibblesEnabled [63:0] $end
+$var reg 64 = dataNext [63:0] $end
+$var reg 64 > number [63:0] $end
+$upscope $end
+$scope module number_decoder_nibble00 $end
+$var wire 5 ? code [4:0] $end
+$var wire 1 @ next_nibble_valid $end
+$var wire 4 A nibble [3:0] $end
+$var wire 1 B this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble01 $end
+$var wire 5 C code [4:0] $end
+$var wire 1 D next_nibble_valid $end
+$var wire 4 E nibble [3:0] $end
+$var wire 1 F this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble02 $end
+$var wire 5 G code [4:0] $end
+$var wire 1 H next_nibble_valid $end
+$var wire 4 I nibble [3:0] $end
+$var wire 1 J this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble04 $end
+$var wire 5 K code [4:0] $end
+$var wire 1 L next_nibble_valid $end
+$var wire 4 M nibble [3:0] $end
+$var wire 1 N this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble05 $end
+$var wire 5 O code [4:0] $end
+$var wire 1 P next_nibble_valid $end
+$var wire 4 Q nibble [3:0] $end
+$var wire 1 R this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble06 $end
+$var wire 5 S code [4:0] $end
+$var wire 1 T next_nibble_valid $end
+$var wire 4 U nibble [3:0] $end
+$var wire 1 V this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble07 $end
+$var wire 5 W code [4:0] $end
+$var wire 1 X next_nibble_valid $end
+$var wire 4 Y nibble [3:0] $end
+$var wire 1 Z this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble08 $end
+$var wire 5 [ code [4:0] $end
+$var wire 1 \ next_nibble_valid $end
+$var wire 4 ] nibble [3:0] $end
+$var wire 1 ^ this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble09 $end
+$var wire 5 _ code [4:0] $end
+$var wire 1 ` next_nibble_valid $end
+$var wire 4 a nibble [3:0] $end
+$var wire 1 b this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble10 $end
+$var wire 5 c code [4:0] $end
+$var wire 1 d next_nibble_valid $end
+$var wire 4 e nibble [3:0] $end
+$var wire 1 f this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble11 $end
+$var wire 5 g code [4:0] $end
+$var wire 1 h next_nibble_valid $end
+$var wire 4 i nibble [3:0] $end
+$var wire 1 j this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble12 $end
+$var wire 5 k code [4:0] $end
+$var wire 1 l next_nibble_valid $end
+$var wire 4 m nibble [3:0] $end
+$var wire 1 n this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble13 $end
+$var wire 5 o code [4:0] $end
+$var wire 1 p next_nibble_valid $end
+$var wire 4 q nibble [3:0] $end
+$var wire 1 r this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble14 $end
+$var wire 5 s code [4:0] $end
+$var wire 1 t next_nibble_valid $end
+$var wire 4 u nibble [3:0] $end
+$var wire 1 v this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble15 $end
+$var wire 5 w code [4:0] $end
+$var wire 1 x next_nibble_valid $end
+$var wire 4 y nibble [3:0] $end
+$var wire 1 z this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble3 $end
+$var wire 5 { code [4:0] $end
+$var wire 1 | next_nibble_valid $end
+$var wire 4 } nibble [3:0] $end
+$var wire 1 ~ this_nibble_valid $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0~
+b0 }
+0|
+b0 {
+1z
+b0 y
+0x
+b0 w
+0v
+b0 u
+0t
+b0 s
+0r
+b0 q
+0p
+b0 o
+0n
+b0 m
+0l
+b0 k
+0j
+b0 i
+0h
+b0 g
+0f
+b0 e
+0d
+b0 c
+0b
+b0 a
+0`
+b0 _
+0^
+b0 ]
+0\
+b0 [
+0Z
+b0 Y
+0X
+b0 W
+0V
+b0 U
+0T
+b0 S
+0R
+b0 Q
+0P
+b0 O
+0N
+b0 M
+0L
+b0 K
+0J
+b0 I
+0H
+b0 G
+0F
+b0 E
+0D
+b0 C
+0B
+b0 A
+0@
+b0 ?
+bx >
+b0 =
+b0 <
+b0 ;
+b0 :
+b0 9
+b0 8
+b0 7
+b0 6
+b0 5
+b0 4
+b0 3
+b0 2
+b0 1
+b0 0
+b0 /
+b0 .
+b1 -
+b0 ,
+b0 +
+b0 *
+b0 )
+bx (
+b0 '
+x&
+b0 %
+0$
+0#
+0"
+bx !
+$end
+#3
+1&
+#5
+1"
+#10
+0"
+#15
+b0 !
+b0 (
+b0 >
+1"
+0&
+#20
+0"
+#25
+1"
+#30
+0"
+#35
+1"
+#40
+0"
+#45
+1"
+#50
+0"
+#55
+1"
+#60
+0"
+#65
+1"
+#70
+0"
+#75
+1"
+#80
+0"
+#85
+1"
+#90
+0"
+#95
+1"
+#100
+0"
+#105
+1"
+#110
+0"
+#115
+1"
+1&
+#120
+0"
+#125
+1"
+#130
+0"
+#135
+1"
+#140
+0"
+#145
+1"
+#150
+b1111 =
+b1111 5
+b11110000 .
+b111100000000 0
+b1111000000000000 8
+b11110000000000000000 9
+b111100000000000000000000 3
+b1111000000000000000000000000 4
+b11110000000000000000000000000000 <
+b111100000000000000000000000000000000 6
+b1111000000000000000000000000000000000000 2
+b11110000000000000000000000000000000000000000 ;
+b111100000000000000000000000000000000000000000000 /
+b1111000000000000000000000000000000000000000000000000 1
+b11110000000000000000000000000000000000000000000000000000 7
+b111100000000000000000000000000000000000000000000000000000000 :
+b1111000000000000000000000000000000000000000000000000000000000000 ,
+b1111000000000000000000000000000000000000000000000000000000000000 *
+b1111000000000000000000000000000000000000000000000000000000000000 +
+b1111 y
+b1111 w
+0"
+1#
+b1111000000000000000000000000000000000000000000000000000000000000000000000000000 %
+b1111000000000000000000000000000000000000000000000000000000000000000000000000000 '
+#155
+b1111 !
+b1111 (
+b1111 >
+1"
+#160
+1@
+b1111 A
+1B
+1D
+b1111 E
+1F
+1H
+b1111 I
+1J
+1|
+b1111 }
+1~
+1L
+b1111 M
+1N
+1P
+b1111 Q
+1R
+1T
+b1111 U
+1V
+1X
+b1111 Y
+1Z
+1\
+b1111 ]
+1^
+1`
+b1111 a
+1b
+1d
+b1111 e
+1f
+1h
+b1111 i
+1j
+1l
+b1111 m
+1n
+1p
+b1111 q
+1r
+1t
+b1111 u
+1v
+b111111111111111111111111111111111111111111111111111111111111 =
+b0 5
+b1111 .
+b11111111 0
+b111111111111 8
+b1111111111111111 9
+b11111111111111111111 3
+b111111111111111111111111 4
+b1111111111111111111111111111 <
+b11111111111111111111111111111111 6
+b111111111111111111111111111111111111 2
+b1111111111111111111111111111111111111111 ;
+b11111111111111111111111111111111111111111111 /
+b111111111111111111111111111111111111111111111111 1
+b1111111111111111111111111111111111111111111111111111 7
+b11111111111111111111111111111111111111111111111111111111 :
+b11111111111111111 -
+b1111111111111111 )
+1x
+b111111111111111111111111111111111111111111111111111111111111 ,
+b111111111111111111111111111111111111111111111111111111111111 *
+b111111111111111111111111111111111111111111111111111111111111 +
+b0 y
+b10000 w
+b11111 s
+b11111 o
+b11111 k
+b11111 g
+b11111 c
+b11111 _
+b11111 [
+b11111 W
+b11111 S
+b11111 O
+b11111 K
+b11111 {
+b11111 G
+b11111 C
+b11111 ?
+0"
+b10000111111111111111111111111111111111111111111111111111111111111111111111111111 %
+b10000111111111111111111111111111111111111111111111111111111111111111111111111111 '
+0#
+#165
+1"
+#170
+0"
+#175
+1"
+#180
+0"
+#182
+b1111111111111111111111111111111111111111111111111111111111111 =
+b1 5
+b11111 .
+b111111111 0
+b1111111111111 8
+b11111111111111111 9
+b111111111111111111111 3
+b1111111111111111111111111 4
+b11111111111111111111111111111 <
+b111111111111111111111111111111111 6
+b1111111111111111111111111111111111111 2
+b11111111111111111111111111111111111111111 ;
+b111111111111111111111111111111111111111111111 /
+b1111111111111111111111111111111111111111111111111 1
+b11111111111111111111111111111111111111111111111111111 7
+b111111111111111111111111111111111111111111111111111111111 :
+b1111111111111111111111111111111111111111111111111111111111111 ,
+b1111111111111111111111111111111111111111111111111111111111111 *
+b1111111111111111111111111111111111111111111111111111111111111 +
+b1 y
+b10001 w
+1#
+b10001111111111111111111111111111111111111111111111111111111111111111111111111111 %
+b10001111111111111111111111111111111111111111111111111111111111111111111111111111 '
+#185
+b1111111111111111111111111111111111111111111111111111111111111 !
+b1111111111111111111111111111111111111111111111111111111111111 (
+b1111111111111111111111111111111111111111111111111111111111111 >
+1"
+#190
+0"
+#192
+0#
+#194

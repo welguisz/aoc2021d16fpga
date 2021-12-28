@@ -15,10 +15,20 @@ Have a working prototype of simulated in working with the BITS code for my indiv
 Three Kings Day 2022 (January 6, 2022).
 
 ## Tools
-* Open Source Verilog Simulator: [Verilator](https://www.veripool.org/verilator/)
-  * [Installation](https://verilator.org/guide/latest/install.html)
-  * [User Guide](https://www.veripool.org/ftp/verilator_doc.pdf)
-* [SystemC](https://www.accellera.org/downloads/standards/systemc)
 * [Icarus Verilog](http://iverilog.icarus.com/home)
 * Waveform Viewer: [GTKWave](http://gtkwave.sourceforge.net/)
-* 
+
+## How to run
+* Following installation instructions for Icarus Verilog and Waveform Viewer.
+* After installing Icarus and GTKWave, you can run the following commands:
+
+```
+iverilog testbench/number_test.v verilog/number_top.v verilog/number_brian.v verilog/number_decoder.v
+vvp a.out
+gtkwave number.vcd &
+```
+
+This should bring up a waveform viewer that you should be able to navigate.  For the initial run, the following
+waveform was produced:
+
+![waveform image](./screenshots/number_waveform.png)
