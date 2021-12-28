@@ -31,4 +31,4 @@ gtkwave number.vcd &
 This should bring up a waveform viewer that you should be able to navigate.  For the initial run, the following
 waveform was produced:
 
-[waveform image](screenshots/number_waveform.png)
+![waveform image](./screenshots/number_waveform.png)
