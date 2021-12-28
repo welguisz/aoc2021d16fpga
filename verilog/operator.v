@@ -1,6 +1,6 @@
 module Operator(
    //outputs
-   value
+   value,
 
    //inputs
    clk,
@@ -40,8 +40,9 @@ module Operator(
          3'b010 : value_next = (input1 > input2) ? input1 : input2;
          3'b011 : value_next = (input1 < input2) ? input1 : input2;
          3'b101 : value_next = {63'b0, input1 > input2};
-         3'b110 : value_next = {63'b0, input1 < input2}
+         3'b110 : value_next = {63'b0, input1 < input2};
          3'b111 : value_next = {63'b0, input1 == input2};
+      endcase
    end
 
 endmodule

@@ -16,3 +16,9 @@ Three Kings Day 2022 (January 6, 2022).
 
 ## Tools
 * Open Source Verilog Simulator: [Verilator](https://www.veripool.org/verilator/)
+  * [Installation](https://verilator.org/guide/latest/install.html)
+  * [User Guide](https://www.veripool.org/ftp/verilator_doc.pdf)
+* [SystemC](https://www.accellera.org/downloads/standards/systemc)
+* [Icarus Verilog](http://iverilog.icarus.com/home)
+* Waveform Viewer: [GTKWave](http://gtkwave.sourceforge.net/)
+* 
