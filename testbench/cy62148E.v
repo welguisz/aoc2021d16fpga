@@ -22,6 +22,7 @@ input [18:0] addr;
 reg[7:0] mem[0:514288];
 reg[7:0] tmp_data;
 
+
 //Internal clock (running at 100 MHz)
 reg clk;
 initial
