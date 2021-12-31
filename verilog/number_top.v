@@ -1,6 +1,7 @@
 module number_top(
      //output
      number,
+     bitsToShift,
 
      //input
      clk,
@@ -10,6 +11,7 @@ module number_top(
 );
 
 output [63:0] number;
+output [6:0] bitsToShift;
 input clk;
 input resetB;
 input enable;
@@ -21,6 +23,7 @@ wire[63:0] data;
 number_brian number_brian(
    //output
    .number (number),
+   .bitsToShift(bitsToShift),
 
    //input
    .clk (clk),

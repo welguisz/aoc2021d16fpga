@@ -1,0 +1,598 @@
+$date
+	Thu Dec 30 21:32:43 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module bits_testbench $end
+$var wire 32 ! expectedBytes [31:0] $end
+$var wire 1 " resetB $end
+$var wire 1 # pwrite $end
+$var wire 32 $ pwdata [31:0] $end
+$var wire 1 % psel $end
+$var wire 32 & prdata [31:0] $end
+$var wire 1 ' penable $end
+$var wire 8 ( paddr [7:0] $end
+$var wire 1 ) imem_web $end
+$var wire 32 * imem_rdata [31:0] $end
+$var wire 1 + imem_ceb $end
+$var wire 10 , imem_addr [9:0] $end
+$var wire 1 - clk $end
+$scope module apb_driver $end
+$var wire 32 . prdata [31:0] $end
+$var wire 1 - clk $end
+$var reg 8 / paddr [7:0] $end
+$var reg 1 ' penable $end
+$var reg 1 % psel $end
+$var reg 32 0 pwdata [31:0] $end
+$var reg 1 # pwrite $end
+$scope task idle $end
+$upscope $end
+$scope task read $end
+$var reg 8 1 addr [7:0] $end
+$var reg 32 2 data [31:0] $end
+$upscope $end
+$scope task write $end
+$var reg 8 3 addr [7:0] $end
+$var reg 32 4 data [31:0] $end
+$upscope $end
+$upscope $end
+$scope module bits_top $end
+$var wire 6 5 paddr [7:2] $end
+$var wire 1 ' penable $end
+$var wire 1 6 pready $end
+$var wire 1 % psel $end
+$var wire 1 7 pslverr $end
+$var wire 32 8 pwdata [31:0] $end
+$var wire 1 # pwrite $end
+$var wire 1 9 start $end
+$var wire 1 " resetB $end
+$var wire 32 : prdata [31:0] $end
+$var wire 1 ) imem_web $end
+$var wire 32 ; imem_rdata [31:0] $end
+$var wire 1 + imem_ceb $end
+$var wire 10 < imem_addr [9:0] $end
+$var wire 16 = expectedBytes [15:0] $end
+$var wire 1 - clk $end
+$scope module bits_regs $end
+$var wire 1 > bits_enable $end
+$var wire 64 ? bits_value [63:0] $end
+$var wire 1 @ done $end
+$var wire 6 A paddr [7:2] $end
+$var wire 1 ' penable $end
+$var wire 1 B pready $end
+$var wire 1 % psel $end
+$var wire 1 C pslverr $end
+$var wire 32 D pwdata [31:0] $end
+$var wire 1 # pwrite $end
+$var wire 1 E read_cycle $end
+$var wire 16 F version_sum [15:0] $end
+$var wire 1 G write_cycle $end
+$var wire 1 " resetB $end
+$var wire 1 - clk $end
+$var reg 64 H bits_value_latched [63:0] $end
+$var reg 1 I done_latched $end
+$var reg 16 J expected_bytes [15:0] $end
+$var reg 32 K prdata [31:0] $end
+$var reg 1 9 start $end
+$var reg 16 L version_sum_latched [15:0] $end
+$upscope $end
+$scope module imem_controller $end
+$var wire 16 M expectedBytes [15:0] $end
+$var wire 16 N instruction_valid_bytes [15:0] $end
+$var wire 1 9 start $end
+$var wire 1 " resetB $end
+$var wire 32 O imem_rdata [31:0] $end
+$var wire 1 - clk $end
+$var reg 17 P byteCounter [16:0] $end
+$var reg 17 Q byteCounter_next [16:0] $end
+$var reg 1 R done_reading_memory $end
+$var reg 1 S done_reading_memory_next $end
+$var reg 10 T imem_addr [9:0] $end
+$var reg 10 U imem_addr_next [9:0] $end
+$var reg 1 + imem_ceb $end
+$var reg 1 V imem_ceb_next $end
+$var reg 1 ) imem_web $end
+$var reg 1 W imem_web_next $end
+$var reg 128 X instruction_word [127:0] $end
+$var reg 128 Y instruction_word_next [127:0] $end
+$var reg 4 Z state [3:0] $end
+$var reg 4 [ state_next [3:0] $end
+$upscope $end
+$upscope $end
+$scope module clk_generator $end
+$var reg 1 - clk $end
+$upscope $end
+$scope module imem $end
+$var wire 10 \ addr [9:0] $end
+$var wire 1 + ceb $end
+$var wire 1 - clk $end
+$var wire 32 ] wdata [31:0] $end
+$var wire 1 ) web $end
+$var reg 32 ^ rdata [31:0] $end
+$upscope $end
+$scope module reset_generator $end
+$var wire 1 - clk $end
+$var reg 5 _ counter [4:0] $end
+$var reg 1 " resetB $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1010 _
+bx ^
+b0 ]
+bx \
+bx [
+bx Z
+bx Y
+bx X
+xW
+xV
+bx U
+bx T
+xS
+xR
+bx Q
+bx P
+bx O
+bz N
+bx M
+bx L
+b0 K
+bx J
+xI
+bx H
+xG
+b0 F
+xE
+bx D
+0C
+1B
+bx A
+0@
+b0 ?
+0>
+bx =
+bx <
+bx ;
+b0 :
+x9
+bx 8
+z7
+z6
+bx 5
+bx 4
+bx 3
+bx 2
+bx 1
+bx 0
+bx /
+b0 .
+0-
+bx ,
+x+
+bx *
+x)
+bx (
+x'
+b0 &
+x%
+bx $
+x#
+x"
+b11 !
+$end
+#5
+0S
+1W
+1V
+09
+1-
+#10
+1"
+0-
+#15
+0R
+1)
+1+
+1-
+#20
+b0 Y
+b0 Q
+b0 U
+b0 [
+b0 =
+b0 J
+b0 M
+b0 H
+b0 L
+0I
+b0 X
+b0 ,
+b0 <
+b0 T
+b0 \
+b0 P
+b0 Z
+0"
+0-
+#25
+b1001 _
+1-
+#30
+0-
+#35
+b1000 _
+1-
+#40
+0-
+#45
+b111 _
+1-
+#50
+0-
+#55
+b110 _
+1-
+#60
+0-
+#65
+b101 _
+1-
+#70
+0-
+#75
+b100 _
+1-
+#80
+0-
+#85
+b11 _
+1-
+#90
+0-
+#95
+b10 _
+1-
+#100
+0-
+#105
+b1 _
+1-
+#110
+0-
+#115
+b0 _
+1-
+#120
+1"
+0-
+#125
+1-
+#130
+0-
+#135
+1-
+#140
+0E
+b0 5
+b0 A
+0G
+b0 $
+b0 0
+b0 8
+b0 D
+b0 (
+b0 /
+0#
+0'
+0%
+0-
+#145
+1-
+#150
+b11 4
+b100 3
+0-
+#155
+1-
+#160
+b1 5
+b1 A
+b11 $
+b11 0
+b11 8
+b11 D
+b100 (
+b100 /
+1#
+1%
+0-
+#165
+b11 =
+b11 J
+b11 M
+1-
+#170
+1G
+1'
+0-
+#175
+1-
+#180
+b0 5
+b0 A
+0G
+b0 $
+b0 0
+b0 8
+b0 D
+b0 (
+b0 /
+0#
+0'
+0%
+0-
+#185
+1-
+#190
+b1 4
+b0 3
+0-
+#195
+1-
+#200
+b1 $
+b1 0
+b1 8
+b1 D
+1#
+1%
+0-
+#205
+b100 Q
+0V
+b1 [
+19
+1-
+#210
+1G
+1'
+0-
+#215
+b10 [
+1V
+0+
+b100 P
+b1 Z
+1-
+#220
+0G
+b0 $
+b0 0
+b0 8
+b0 D
+0#
+0'
+0%
+0-
+#225
+b11010010111111100010100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 Y
+1S
+b1111 [
+b11010010111111100010100000000000 *
+b11010010111111100010100000000000 ;
+b11010010111111100010100000000000 O
+b11010010111111100010100000000000 ^
+1+
+b10 Z
+09
+1-
+#230
+0-
+#235
+0S
+1R
+b11010010111111100010100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 X
+b1111 Z
+1-
+#240
+0-
+#245
+0R
+1-
+#250
+0-
+#255
+1-
+#260
+0-
+#265
+1-
+#270
+0-
+#275
+1-
+#280
+0-
+#285
+1-
+#290
+0-
+#295
+1-
+#300
+0-
+#305
+1-
+#310
+0-
+#315
+1-
+#320
+0-
+#325
+1-
+#330
+0-
+#335
+1-
+#340
+0-
+#345
+1-
+#350
+0-
+#355
+1-
+#360
+0-
+#365
+1-
+#370
+0-
+#375
+1-
+#380
+0-
+#385
+1-
+#390
+0-
+#395
+1-
+#400
+0-
+#405
+1-
+#410
+0-
+#415
+1-
+#420
+0-
+#425
+1-
+#430
+0-
+#435
+1-
+#440
+0-
+#445
+1-
+#450
+0-
+#455
+1-
+#460
+0-
+#465
+1-
+#470
+0-
+#475
+1-
+#480
+0-
+#485
+1-
+#490
+0-
+#495
+1-
+#500
+0-
+#505
+1-
+#510
+0-
+#515
+1-
+#520
+0-
+#525
+1-
+#530
+0-
+#535
+1-
+#540
+0-
+#545
+1-
+#550
+0-
+#555
+1-
+#560
+0-
+#565
+1-
+#570
+0-
+#575
+1-
+#580
+0-
+#585
+1-
+#590
+0-
+#595
+1-
+#600
+0-
+#605
+1-
+#610
+0-
+#615
+1-
+#620
+0-
+#625
+1-
+#630
+0-
+#635
+1-
+#640
+0-
+#645
+1-
+#650
+0-
+#655
+1-
+#660
+0-
+#665
+1-
+#670
+0-
+#675
+1-
+#680
+0-
+#685
+1-
+#690
+0-
+#695
+1-
+#700
+0-
+#705
+1-
+#710
+0-
+#715
+1-
+#720
+0-

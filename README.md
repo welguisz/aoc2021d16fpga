@@ -8,7 +8,7 @@ described in [Advent of Code, Year 2021, Day 16](https://adventofcode.com/2021/d
 ## Directory Structure
 * verilog - The actual verilog code that will be synthesizable
 * testbench - Testbench of external devices to the verilog code that will be needed in the real world to make it
-* design_docs - The design docs for each module
+* design_docs - The design docs for each module.  This will include the register map.
 
 ## Timeline Goal
 Have a working prototype of simulated in working with the BITS code for my individual problem by 
@@ -32,3 +32,4 @@ This should bring up a waveform viewer that you should be able to navigate.  For
 waveform was produced:
 
 ![waveform image](./screenshots/number_waveform.png)
+
