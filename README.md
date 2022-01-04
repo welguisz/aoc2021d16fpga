@@ -23,9 +23,10 @@ Three Kings Day 2022 (January 6, 2022).
 * After installing Icarus and GTKWave, you can run the following commands:
 
 ```
-iverilog testbench/number_test.v verilog/number_top.v verilog/number_brian.v verilog/number_decoder.v
+iverilog -c filelist.txt
+cd tests/simpleNumberPacket
 vvp a.out
-gtkwave number.vcd &
+gtkwave dump.vcd &
 ```
 
 This should bring up a waveform viewer that you should be able to navigate.  For the initial run, the following

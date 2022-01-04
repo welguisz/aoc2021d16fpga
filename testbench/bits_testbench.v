@@ -16,6 +16,12 @@ wire imem_web;
 wire[9:0] imem_addr;
 wire[31:0] imem_rdata;
 
+wire smem_ceb;
+wire smem_web;
+wire[13:0] smem_addr;
+wire[95:0] smem_wdata;
+wire[95:0] smem_rdata;
+
 bits_top bits_top(
     //outputs
     // -- AMBA Peripheral Bus Signals
@@ -27,6 +33,12 @@ bits_top bits_top(
     .imem_ceb (imem_ceb),
     .imem_web (imem_web),
     .imem_addr (imem_addr),
+
+    // -- Stack Memory
+    .smem_ceb (smem_ceb),
+    .smem_web (smem_web),
+    .smem_addr (smem_addr),
+    .smem_wdata (smem_wdata),
 
     //inputs
     // -- System Inputs
@@ -40,7 +52,9 @@ bits_top bits_top(
     .pwrite (pwrite),
     .pwdata (pwdata),
     // -- Instruction Memory
-    .imem_rdata (imem_rdata)
+    .imem_rdata (imem_rdata),
+    //--Stack Memory
+    .smem_rdata(smem_rdata)
 );
 
 mem1024x32 imem(
@@ -53,6 +67,16 @@ mem1024x32 imem(
    .web (imem_web),
    .addr (imem_addr),
    .wdata (32'h0)
+);
+
+mem16384x96 smem(
+   .rdata(smem_rdata),
+
+   .clk(clk),
+   .ceb(smem_ceb),
+   .web(smem_web),
+   .addr(smem_addr),
+   .wdata(smem_wdata)
 );
 
 clk_generator clk_generator(

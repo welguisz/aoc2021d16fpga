@@ -8,7 +8,11 @@ module bits_top(
    imem_ceb,
    imem_web,
    imem_addr,
-
+   // -- Stack Memory
+   smem_ceb,
+   smem_web,
+   smem_addr,
+   smem_wdata,
 
    //inputs
    // --System inputs
@@ -25,7 +29,8 @@ module bits_top(
    //--Instruction Memory
   imem_rdata,
 
-
+  //Stack Memory
+  smem_rdata
 
 );
 
@@ -37,6 +42,11 @@ output       imem_ceb;
 output       imem_web;
 output[9:0]  imem_addr;
 
+output       smem_ceb;
+output       smem_web;
+output[13:0] smem_addr;
+output[95:0] smem_wdata;
+
 input        clk;
 input        resetB;
 input[7:2]   paddr;
@@ -47,8 +57,19 @@ input[31:0]  pwdata;
 
 input[31:0]  imem_rdata;
 
+input[95:0]  smem_rdata;
+
 wire       start;
 wire[15:0] expectedBytes;
+wire done_reading_memory;
+wire[127:0] instruction_word;
+wire[15:0] instruction_valid_bytes;
+wire done;
+wire[63:0] bits_value;
+wire[15:0] version_sum;
+
+wire       mem_req_b;
+wire       mem_ack_b;
 
 bits_regs bits_regs(
     //outputs
@@ -74,11 +95,12 @@ bits_regs bits_regs(
     .pwdata (pwdata),
 
     // -- Signals from BITS Core
-    .done (1'b0),
-    .bits_value (64'h0),
+    .done (done),
+    .bits_value (bits_value),
     .bits_enable (1'b0),
-    .version_sum(16'h0)
+    .version_sum(version_sum)
 );
+
 
 imem_controller imem_controller(
     //outputs
@@ -88,9 +110,10 @@ imem_controller imem_controller(
     .imem_addr (imem_addr),
 
     // -- Status to be sent to bits_regs
-    .done_reading_memory (),
-    .instruction_word (),
-    .instruction_valid_bytes(),
+    .done_reading_memory (done_reading_memory),
+    .instruction_word (instruction_word),
+    .instruction_valid_bytes(instruction_valid_bytes),
+    .mem_ack_b (mem_ack_b),
 
     //inputs
     // -- System Inputs
@@ -99,9 +122,42 @@ imem_controller imem_controller(
 
     //--Instruction Memory Read Data
     .imem_rdata (imem_rdata),
+    .mem_req_b (mem_req_b),
 
     //--Control bits from Bits_reg
-    .start  (start),
+    .expectedBytes (expectedBytes)
+);
+
+bits_core bits_core(
+    //outputs
+    // -- Stack Memory Access (R/W)
+    .smem_ceb (smem_ceb),
+    .smem_web (smem_web),
+    .smem_addr (smem_addr),
+    .smem_wdata (smem_wdata),
+    .mem_req_b (mem_req_b),
+
+    //-- Status to be sent to bits_regs
+    .done (done),
+    .version_sum (version_sum),
+    .bits_value (bits_value),
+
+    //inputs
+    //System Inputs
+    .clk (clk),
+    .resetB (resetB),
+
+    //--Stack Memory Read Data
+    .smem_rdata (smem_rdata),
+
+    //--Instruction Word
+    .instruction_word (instruction_word),
+    .instruction_byte_valid (instruction_valid_bytes),
+    .done_reading_memory (done_reading_memory),
+    .mem_ack_b (mem_ack_b),
+
+    //--Control bits from Bits_reg
+    .start (start),
     .expectedBytes (expectedBytes)
 );
 

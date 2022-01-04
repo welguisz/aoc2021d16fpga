@@ -1,4 +1,4 @@
-module mem16384x64(
+module mem16384x96(
    //output
    rdata,
 
@@ -10,16 +10,16 @@ module mem16384x64(
    wdata
 );
 
-output[63:0] rdata;
+output[95:0] rdata;
 
 input clk;
 input ceb;
 input web;
 input[13:0] addr;
-input[63:0] wdata;
+input[95:0] wdata;
 
-reg[63:0] mem[0:16383];
-reg[63:0] rdata;
+reg[95:0] mem[0:16383];
+reg[95:0] rdata;
 
 
 //Write Cycle

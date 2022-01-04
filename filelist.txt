@@ -2,6 +2,7 @@
 ./verilog/bits_fsm.v
 ./verilog/bits_regs.v
 ./verilog/bits_top.v
+./verilog/bits_instruction_cache.v
 ./verilog/imem_controller.v
 ./verilog/number_brian.v
 ./verilog/number_decoder.v
@@ -12,5 +13,5 @@
 ./testbench/apb_driver.v
 ./testbench/clk_generator.v
 ./testbench/dumpvars.v
-./testbench/mem16384x64.v
+./testbench/mem16384x96.v
 ./testbench/reset_generator.v

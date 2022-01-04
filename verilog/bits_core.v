@@ -5,6 +5,7 @@ module bits_core(
     smem_web,
     smem_addr,
     smem_wdata,
+    mem_req_b,
 
     //-- Status to be sent to bits_regs
     done,
@@ -23,6 +24,7 @@ module bits_core(
     instruction_word,
     instruction_byte_valid,
     done_reading_memory,
+    mem_ack_b,
 
     //--Control bits from Bits_reg
     start,
@@ -31,9 +33,10 @@ module bits_core(
 
 output       smem_ceb;
 output       smem_web;
-output[15:0]  smem_addr;
-output[63:0] smem_wdata;
+output[13:0] smem_addr;
+output[95:0] smem_wdata;
 
+output       mem_req_b;
 output       done;
 output[15:0] version_sum;
 output[63:0] bits_value;
@@ -42,11 +45,12 @@ output[63:0] bits_value;
 input        clk;
 input        resetB;
 
-input[63:0]  smem_rdata;
+input[95:0]  smem_rdata;
 
 input[127:0] instruction_word;
 input[15:0]  instruction_byte_valid;
 input        done_reading_memory;
+input        mem_ack_b;
 
 input        start;
 input[15:0]  expectedBytes;
@@ -55,6 +59,13 @@ wire[63:0]   number;
 wire[6:0]    bitsToShift;
 wire[79:0]   encoded_number;
 wire         decode_number;
+wire[15:0]   validNibbles;
+wire [4:0]   instruction_process;
+
+wire mem_req_b;
+wire mem_ack_b;
+wire[255:0] instruction_cache_word;
+wire space_available;
 
 bits_fsm bits_fsm(
    //Outputs
@@ -64,6 +75,8 @@ bits_fsm bits_fsm(
    .smem_addr (smem_addr),
    .smem_wdata (smem_wdata),
 
+   .mem_req_b (mem_req_b),
+
    // Items to send to Bits Regs
    .done    (done),
    .bits_value (bits_value),
@@ -72,6 +85,7 @@ bits_fsm bits_fsm(
    // Send to number decoder
    .encoded_number (encoded_number),
    .decodeNumber (decode_number),
+   .instruction_process (instruction_process),
 
    //Inputs
    //System inputs
@@ -81,19 +95,40 @@ bits_fsm bits_fsm(
    //Instruction Memory Inputs
    .instruction_word(instruction_word),
    .instruction_byte_valid(instruction_byte_valid),
-   .done_reading_memory(done_reading_valid),
+   .done_reading_memory(done_reading_memory),
+   .start(start),
+   .instruction_cache_word(instruction_cache_word),
+   .space_available(space_available),
+   .mem_ack_b (mem_ack_b),
 
    //From number decoder
    .decodedNumber(number),
-   .bitsToShift(bitsToShift)
+   .validNibbles(validNibbles)
 );
 
+bits_instruction_cache bits_instruction_cache(
+   //instruction cache
+   .instruction_cache (instruction_cache_word),
+   .space_available (space_available),
 
+   //inputs
+   .clk (clk),
+   .resetB(resetB),
+
+   //imem_controller
+   .mem_req_b (mem_req_b),
+   .mem_ack_b (mem_ack_b),
+   .instruction_word (instruction_word),
+   .valid_bytes (instruction_byte_valid),
+
+   //bits_fsm
+   .instruction_process (instruction_process)
+);
 
 number_top number_decoder(
      //output
      .number          (number),
-     .bitsToShift     (bitsToShift),
+     .validNibbles    (validNibbles),
 
      //input
      .clk             (clk),
