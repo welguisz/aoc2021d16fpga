@@ -1,6 +1,7 @@
 module number_brian(
    //output
    number,
+   bitsToShift,
 
    //input
    clk,
@@ -11,6 +12,7 @@ module number_brian(
 );
 
 output [63:0] number;
+output [6:0] bitsToShift;
 
 input clk;
 input resetB;
@@ -38,6 +40,8 @@ wire [63:0] sixteenNibblesEnabled;
 
 reg [63:0] dataNext;
 reg[63:0] number;
+reg [6:0] bitsToShift;
+reg [6:0] bitsToShiftNext;
 
 assign oneNibbleEnabled = {60'h0,inputNumber[63:60]};
 assign twoNibblesEnabled = {56'h0,inputNumber[63:56]};
@@ -64,38 +68,71 @@ always @(validNibbles or oneNibbleEnabled or twoNibblesEnabled or
          or fifteenNibblesEnabled or sixteenNibblesEnabled)
    begin
        dataNext = oneNibbleEnabled;
-       if (validNibbles[15])
+       bitsToShiftNext = 7'h5;
+       if (validNibbles[15]) begin
           dataNext = sixteenNibblesEnabled;
-       else if (validNibbles[14])
+          bitsToShiftNext = 7'h50;
+       end
+       else if (validNibbles[14]) begin
           dataNext = fifteenNibblesEnabled;
-       else if (validNibbles[13])
+          bitsToShiftNext = 7'h4b;
+       end
+       else if (validNibbles[13]) begin
           dataNext = fourteenNibblesEnabled;
-       else if (validNibbles[12])
+          bitsToShiftNext = 7'h46;
+       end
+       else if (validNibbles[12]) begin
           dataNext = thirteenNibblesEnabled;
-       else if (validNibbles[11])
+          bitsToShiftNext = 7'h41;
+       end
+       else if (validNibbles[11]) begin
           dataNext = twelveNibblesEnabled;
-       else if (validNibbles[10])
+          bitsToShiftNext = 7'h3c;
+       end
+       else if (validNibbles[10]) begin
           dataNext = elevenNibblesEnabled;
-       else if (validNibbles[9])
+          bitsToShiftNext = 7'h37;
+       end
+       else if (validNibbles[9]) begin
           dataNext = tenNibblesEnabled;
-       else if (validNibbles[8])
+          bitsToShiftNext = 7'h32;
+       end
+       else if (validNibbles[8]) begin
           dataNext = nineNibblesEnabled;
-       else if (validNibbles[7])
+          bitsToShiftNext = 7'h2D;
+       end
+       else if (validNibbles[7]) begin
           dataNext = eightNibblesEnabled;
-       else if (validNibbles[6])
+          bitsToShiftNext = 7'h28;
+       end
+       else if (validNibbles[6]) begin
           dataNext = sevenNibblesEnabled;
-       else if (validNibbles[5])
+          bitsToShiftNext = 7'h23;
+       end
+       else if (validNibbles[5]) begin
           dataNext = sixNibblesEnabled;
-       else if (validNibbles[4])
+          bitsToShiftNext = 7'h1E;
+       end
+       else if (validNibbles[4]) begin
           dataNext = fiveNibblesEnabled;
-       else if (validNibbles[3])
+          bitsToShiftNext = 7'h19;
+       end
+       else if (validNibbles[3]) begin
           dataNext = fourNibblesEnabled;
-       else if (validNibbles[2])
+          bitsToShiftNext = 7'h14;
+       end
+       else if (validNibbles[2]) begin
           dataNext = threeNibblesEnabled;
-       else if (validNibbles[1])
+          bitsToShiftNext = 7'h0F;
+       end
+       else if (validNibbles[1]) begin
           dataNext = twoNibblesEnabled;
-       else if (validNibbles[0])
+          bitsToShiftNext = 7'h0A;
+       end
+       else if (validNibbles[0]) begin
           dataNext = oneNibbleEnabled;
+          bitsToShiftNext = 7'h05;
+       end
    end
 
 
@@ -103,10 +140,12 @@ always @(posedge clk or negedge resetB)
   begin
      if (~resetB) begin
          number <= 64'h0;
+         bitsToShift <= 7'h0;
      end
      else begin
         if (enable) begin
            number <= dataNext;
+           bitsToShift <= bitsToShiftNext;
         end
      end
   end

@@ -1,0 +1,1360 @@
+$date
+	Mon Jan  3 21:09:01 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module bits_testbench $end
+$var wire 32 ! expectedBytes [31:0] $end
+$var wire 1 " smem_web $end
+$var wire 96 # smem_wdata [95:0] $end
+$var wire 96 $ smem_rdata [95:0] $end
+$var wire 1 % smem_ceb $end
+$var wire 14 & smem_addr [13:0] $end
+$var wire 1 ' resetB $end
+$var wire 1 ( pwrite $end
+$var wire 32 ) pwdata [31:0] $end
+$var wire 1 * psel $end
+$var wire 32 + prdata [31:0] $end
+$var wire 1 , penable $end
+$var wire 8 - paddr [7:0] $end
+$var wire 1 . imem_web $end
+$var wire 32 / imem_rdata [31:0] $end
+$var wire 1 0 imem_ceb $end
+$var wire 10 1 imem_addr [9:0] $end
+$var wire 1 2 clk $end
+$scope module apb_driver $end
+$var wire 32 3 prdata [31:0] $end
+$var wire 1 2 clk $end
+$var reg 8 4 paddr [7:0] $end
+$var reg 1 , penable $end
+$var reg 1 * psel $end
+$var reg 32 5 pwdata [31:0] $end
+$var reg 1 ( pwrite $end
+$scope task idle $end
+$upscope $end
+$scope task read $end
+$var reg 8 6 addr [7:0] $end
+$var reg 32 7 data [31:0] $end
+$upscope $end
+$scope task write $end
+$var reg 8 8 addr [7:0] $end
+$var reg 32 9 data [31:0] $end
+$upscope $end
+$upscope $end
+$scope module bits_top $end
+$var wire 6 : paddr [7:2] $end
+$var wire 1 , penable $end
+$var wire 1 ; pready $end
+$var wire 1 * psel $end
+$var wire 1 < pslverr $end
+$var wire 32 = pwdata [31:0] $end
+$var wire 1 ( pwrite $end
+$var wire 16 > version_sum [15:0] $end
+$var wire 1 ? start $end
+$var wire 1 " smem_web $end
+$var wire 96 @ smem_wdata [95:0] $end
+$var wire 96 A smem_rdata [95:0] $end
+$var wire 1 % smem_ceb $end
+$var wire 14 B smem_addr [13:0] $end
+$var wire 1 ' resetB $end
+$var wire 32 C prdata [31:0] $end
+$var wire 1 D mem_req_b $end
+$var wire 1 E mem_ack_b $end
+$var wire 128 F instruction_word [127:0] $end
+$var wire 16 G instruction_valid_bytes [15:0] $end
+$var wire 1 . imem_web $end
+$var wire 32 H imem_rdata [31:0] $end
+$var wire 1 0 imem_ceb $end
+$var wire 10 I imem_addr [9:0] $end
+$var wire 16 J expectedBytes [15:0] $end
+$var wire 1 K done_reading_memory $end
+$var wire 1 L done $end
+$var wire 1 2 clk $end
+$var wire 64 M bits_value [63:0] $end
+$scope module bits_core $end
+$var wire 16 N version_sum [15:0] $end
+$var wire 16 O validNibbles [15:0] $end
+$var wire 1 ? start $end
+$var wire 1 P space_available $end
+$var wire 1 " smem_web $end
+$var wire 96 Q smem_wdata [95:0] $end
+$var wire 96 R smem_rdata [95:0] $end
+$var wire 1 % smem_ceb $end
+$var wire 14 S smem_addr [13:0] $end
+$var wire 1 ' resetB $end
+$var wire 64 T number [63:0] $end
+$var wire 1 D mem_req_b $end
+$var wire 1 E mem_ack_b $end
+$var wire 128 U instruction_word [127:0] $end
+$var wire 5 V instruction_process [4:0] $end
+$var wire 256 W instruction_cache_word [255:0] $end
+$var wire 16 X instruction_byte_valid [15:0] $end
+$var wire 16 Y expectedBytes [15:0] $end
+$var wire 80 Z encoded_number [79:0] $end
+$var wire 1 K done_reading_memory $end
+$var wire 1 L done $end
+$var wire 1 [ decode_number $end
+$var wire 1 2 clk $end
+$var wire 64 \ bits_value [63:0] $end
+$scope module bits_fsm $end
+$var wire 96 ] smem_rdata [95:0] $end
+$var wire 3 ^ version_sum_current [2:0] $end
+$var wire 16 _ validNibbles [15:0] $end
+$var wire 4 ` validNibbleCount [3:0] $end
+$var wire 1 ? start $end
+$var wire 1 a stack_is_empty $end
+$var wire 1 P space_available $end
+$var wire 1 ' resetB $end
+$var wire 3 b packet_type [2:0] $end
+$var wire 1 E mem_ack_b $end
+$var wire 1 c literal_packet $end
+$var wire 128 d instruction_word [127:0] $end
+$var wire 256 e instruction_cache_word [255:0] $end
+$var wire 16 f instruction_byte_valid [15:0] $end
+$var wire 1 K done_reading_memory $end
+$var wire 64 g decodedNumber [63:0] $end
+$var wire 1 2 clk $end
+$var reg 64 h bits_value [63:0] $end
+$var reg 64 i bits_value_next [63:0] $end
+$var reg 1 [ decodeNumber $end
+$var reg 1 j decodeNumber_next $end
+$var reg 1 L done $end
+$var reg 1 k done_next $end
+$var reg 1 l done_reading_memory_reg $end
+$var reg 80 m encoded_number [79:0] $end
+$var reg 80 n encoded_number_next [79:0] $end
+$var reg 5 o instruction_process [4:0] $end
+$var reg 5 p instruction_process_next [4:0] $end
+$var reg 1 D mem_req_b $end
+$var reg 1 q mem_req_b_next $end
+$var reg 14 r smem_addr [13:0] $end
+$var reg 14 s smem_addr_next [13:0] $end
+$var reg 1 % smem_ceb $end
+$var reg 1 t smem_ceb_next $end
+$var reg 96 u smem_wdata [95:0] $end
+$var reg 96 v smem_wdata_next [95:0] $end
+$var reg 1 " smem_web $end
+$var reg 1 w smem_web_next $end
+$var reg 4 x state [3:0] $end
+$var reg 4 y state_next [3:0] $end
+$var reg 16 z version_sum [15:0] $end
+$var reg 16 { version_sum_next [15:0] $end
+$upscope $end
+$scope module bits_instruction_cache $end
+$var wire 5 | instruction_process [4:0] $end
+$var wire 1 D mem_req_b $end
+$var wire 16 } valid_bytes [15:0] $end
+$var wire 1 P space_available $end
+$var wire 1 ' resetB $end
+$var wire 1 E mem_ack_b $end
+$var wire 128 ~ instruction_word [127:0] $end
+$var wire 1 2 clk $end
+$var reg 256 !" instruction_cache [255:0] $end
+$var reg 256 "" instruction_cache_next [255:0] $end
+$var reg 9 #" instruction_size [8:0] $end
+$var reg 9 $" instruction_size_next [8:0] $end
+$var reg 5 %" instruction_size_read [4:0] $end
+$var reg 3 &" state [2:0] $end
+$var reg 3 '" state_next [2:0] $end
+$upscope $end
+$scope module number_decoder $end
+$var wire 1 [ enable $end
+$var wire 80 (" numberFromBits [79:0] $end
+$var wire 16 )" validNibbles [15:0] $end
+$var wire 1 ' resetB $end
+$var wire 64 *" number [63:0] $end
+$var wire 16 +" nibbleChain [15:0] $end
+$var wire 64 ," data [63:0] $end
+$var wire 1 2 clk $end
+$var wire 7 -" bitsToShift [6:0] $end
+$scope module number_brian $end
+$var wire 1 [ enable $end
+$var wire 64 ." inputNumber [63:0] $end
+$var wire 64 /" sixteenNibblesEnabled [63:0] $end
+$var wire 17 0" validNibbles [16:0] $end
+$var wire 64 1" twoNibblesEnabled [63:0] $end
+$var wire 64 2" twelveNibblesEnabled [63:0] $end
+$var wire 64 3" threeNibblesEnabled [63:0] $end
+$var wire 64 4" thirteenNibblesEnabled [63:0] $end
+$var wire 64 5" tenNibblesEnabled [63:0] $end
+$var wire 64 6" sixNibblesEnabled [63:0] $end
+$var wire 64 7" sevenNibblesEnabled [63:0] $end
+$var wire 1 ' resetB $end
+$var wire 64 8" oneNibbleEnabled [63:0] $end
+$var wire 64 9" nineNibblesEnabled [63:0] $end
+$var wire 64 :" fourteenNibblesEnabled [63:0] $end
+$var wire 64 ;" fourNibblesEnabled [63:0] $end
+$var wire 64 <" fiveNibblesEnabled [63:0] $end
+$var wire 64 =" fifteenNibblesEnabled [63:0] $end
+$var wire 64 >" elevenNibblesEnabled [63:0] $end
+$var wire 64 ?" eightNibblesEnabled [63:0] $end
+$var wire 1 2 clk $end
+$var reg 7 @" bitsToShift [6:0] $end
+$var reg 7 A" bitsToShiftNext [6:0] $end
+$var reg 64 B" dataNext [63:0] $end
+$var reg 64 C" number [63:0] $end
+$upscope $end
+$scope module number_decoder_nibble00 $end
+$var wire 5 D" code [4:0] $end
+$var wire 1 E" next_nibble_valid $end
+$var wire 4 F" nibble [3:0] $end
+$var wire 1 G" this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble01 $end
+$var wire 5 H" code [4:0] $end
+$var wire 1 I" next_nibble_valid $end
+$var wire 4 J" nibble [3:0] $end
+$var wire 1 K" this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble02 $end
+$var wire 5 L" code [4:0] $end
+$var wire 1 M" next_nibble_valid $end
+$var wire 4 N" nibble [3:0] $end
+$var wire 1 O" this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble04 $end
+$var wire 5 P" code [4:0] $end
+$var wire 1 Q" next_nibble_valid $end
+$var wire 4 R" nibble [3:0] $end
+$var wire 1 S" this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble05 $end
+$var wire 5 T" code [4:0] $end
+$var wire 1 U" next_nibble_valid $end
+$var wire 4 V" nibble [3:0] $end
+$var wire 1 W" this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble06 $end
+$var wire 5 X" code [4:0] $end
+$var wire 1 Y" next_nibble_valid $end
+$var wire 4 Z" nibble [3:0] $end
+$var wire 1 [" this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble07 $end
+$var wire 5 \" code [4:0] $end
+$var wire 1 ]" next_nibble_valid $end
+$var wire 4 ^" nibble [3:0] $end
+$var wire 1 _" this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble08 $end
+$var wire 5 `" code [4:0] $end
+$var wire 1 a" next_nibble_valid $end
+$var wire 4 b" nibble [3:0] $end
+$var wire 1 c" this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble09 $end
+$var wire 5 d" code [4:0] $end
+$var wire 1 e" next_nibble_valid $end
+$var wire 4 f" nibble [3:0] $end
+$var wire 1 g" this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble10 $end
+$var wire 5 h" code [4:0] $end
+$var wire 1 i" next_nibble_valid $end
+$var wire 4 j" nibble [3:0] $end
+$var wire 1 k" this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble11 $end
+$var wire 5 l" code [4:0] $end
+$var wire 1 m" next_nibble_valid $end
+$var wire 4 n" nibble [3:0] $end
+$var wire 1 o" this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble12 $end
+$var wire 5 p" code [4:0] $end
+$var wire 1 q" next_nibble_valid $end
+$var wire 4 r" nibble [3:0] $end
+$var wire 1 s" this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble13 $end
+$var wire 5 t" code [4:0] $end
+$var wire 1 u" next_nibble_valid $end
+$var wire 4 v" nibble [3:0] $end
+$var wire 1 w" this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble14 $end
+$var wire 5 x" code [4:0] $end
+$var wire 1 y" next_nibble_valid $end
+$var wire 4 z" nibble [3:0] $end
+$var wire 1 {" this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble15 $end
+$var wire 5 |" code [4:0] $end
+$var wire 1 }" next_nibble_valid $end
+$var wire 4 ~" nibble [3:0] $end
+$var wire 1 !# this_nibble_valid $end
+$upscope $end
+$scope module number_decoder_nibble3 $end
+$var wire 5 "# code [4:0] $end
+$var wire 1 ## next_nibble_valid $end
+$var wire 4 $# nibble [3:0] $end
+$var wire 1 %# this_nibble_valid $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module bits_regs $end
+$var wire 1 &# bits_enable $end
+$var wire 64 '# bits_value [63:0] $end
+$var wire 1 L done $end
+$var wire 6 (# paddr [7:2] $end
+$var wire 1 , penable $end
+$var wire 1 )# pready $end
+$var wire 1 * psel $end
+$var wire 1 *# pslverr $end
+$var wire 32 +# pwdata [31:0] $end
+$var wire 1 ( pwrite $end
+$var wire 1 ,# read_cycle $end
+$var wire 16 -# version_sum [15:0] $end
+$var wire 1 .# write_cycle $end
+$var wire 1 ' resetB $end
+$var wire 1 2 clk $end
+$var reg 64 /# bits_value_latched [63:0] $end
+$var reg 1 0# done_latched $end
+$var reg 16 1# expected_bytes [15:0] $end
+$var reg 32 2# prdata [31:0] $end
+$var reg 1 ? start $end
+$var reg 16 3# version_sum_latched [15:0] $end
+$upscope $end
+$scope module imem_controller $end
+$var wire 16 4# expectedBytes [15:0] $end
+$var wire 1 D mem_req_b $end
+$var wire 1 ' resetB $end
+$var wire 32 5# imem_rdata [31:0] $end
+$var wire 1 2 clk $end
+$var reg 17 6# byteCounter [16:0] $end
+$var reg 17 7# byteCounter_next [16:0] $end
+$var reg 1 K done_reading_memory $end
+$var reg 1 8# done_reading_memory_next $end
+$var reg 10 9# imem_addr [9:0] $end
+$var reg 10 :# imem_addr_next [9:0] $end
+$var reg 1 0 imem_ceb $end
+$var reg 1 ;# imem_ceb_next $end
+$var reg 1 . imem_web $end
+$var reg 1 <# imem_web_next $end
+$var reg 16 =# instruction_valid_bytes [15:0] $end
+$var reg 16 ># instruction_valid_bytes_next [15:0] $end
+$var reg 128 ?# instruction_word [127:0] $end
+$var reg 128 @# instruction_word_next [127:0] $end
+$var reg 1 E mem_ack_b $end
+$var reg 1 A# mem_ack_b_next $end
+$var reg 4 B# state [3:0] $end
+$var reg 4 C# state_next [3:0] $end
+$upscope $end
+$upscope $end
+$scope module clk_generator $end
+$var reg 1 2 clk $end
+$upscope $end
+$scope module imem $end
+$var wire 10 D# addr [9:0] $end
+$var wire 1 0 ceb $end
+$var wire 1 2 clk $end
+$var wire 32 E# wdata [31:0] $end
+$var wire 1 . web $end
+$var reg 32 F# rdata [31:0] $end
+$upscope $end
+$scope module reset_generator $end
+$var wire 1 2 clk $end
+$var reg 5 G# counter [4:0] $end
+$var reg 1 ' resetB $end
+$upscope $end
+$scope module smem $end
+$var wire 14 H# addr [13:0] $end
+$var wire 1 % ceb $end
+$var wire 1 2 clk $end
+$var wire 96 I# wdata [95:0] $end
+$var wire 1 " web $end
+$var reg 96 J# rdata [95:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx J#
+bx I#
+bx H#
+b1010 G#
+bx F#
+b0 E#
+bx D#
+bx C#
+bx B#
+xA#
+bx @#
+bx ?#
+bx >#
+bx =#
+x<#
+x;#
+bx :#
+bx 9#
+x8#
+bx 7#
+bx 6#
+bx 5#
+bx 4#
+bx 3#
+bx 2#
+bx 1#
+x0#
+bx /#
+x.#
+bx -#
+x,#
+bx +#
+0*#
+1)#
+bx (#
+bx '#
+0&#
+x%#
+bx $#
+x##
+bx "#
+1!#
+bx ~"
+x}"
+bx |"
+x{"
+bx z"
+xy"
+bx x"
+xw"
+bx v"
+xu"
+bx t"
+xs"
+bx r"
+xq"
+bx p"
+xo"
+bx n"
+xm"
+bx l"
+xk"
+bx j"
+xi"
+bx h"
+xg"
+bx f"
+xe"
+bx d"
+xc"
+bx b"
+xa"
+bx `"
+x_"
+bx ^"
+x]"
+bx \"
+x["
+bx Z"
+xY"
+bx X"
+xW"
+bx V"
+xU"
+bx T"
+xS"
+bx R"
+xQ"
+bx P"
+xO"
+bx N"
+xM"
+bx L"
+xK"
+bx J"
+xI"
+bx H"
+xG"
+bx F"
+xE"
+bx D"
+bx C"
+b0xxxx B"
+b101 A"
+bx @"
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ?"
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx >"
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx ="
+b0xxxxxxxxxxxxxxxxxxxx <"
+b0xxxxxxxxxxxxxxxx ;"
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx :"
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 9"
+b0xxxx 8"
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxx 7"
+b0xxxxxxxxxxxxxxxxxxxxxxxx 6"
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 5"
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 4"
+b0xxxxxxxxxxxx 3"
+b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 2"
+b0xxxxxxxx 1"
+bx1 0"
+bx /"
+bx ."
+bx -"
+bx ,"
+bx +"
+bx *"
+bx1 )"
+bx ("
+bx '"
+bx &"
+bx %"
+bx $"
+bx #"
+bx ""
+bx !"
+bx ~
+bx }
+bx |
+bx {
+bx z
+bx y
+bx x
+xw
+bx v
+bx u
+xt
+bx s
+bx r
+xq
+bx p
+bx o
+bx n
+bx m
+xl
+xk
+xj
+bx i
+bx h
+bx g
+bx f
+bx e
+bx d
+xc
+bx b
+xa
+bx `
+bx1 _
+bx ^
+bz ]
+bx \
+x[
+bx Z
+bx Y
+bx X
+bx W
+bx V
+bx U
+bx T
+bx S
+bx R
+bx Q
+xP
+bx1 O
+bx N
+bx M
+xL
+xK
+bx J
+bx I
+bx H
+bx G
+bx F
+xE
+xD
+bx C
+bx B
+bx A
+bx @
+x?
+bx >
+bx =
+z<
+z;
+bx :
+bx 9
+bx 8
+bx 7
+bx 6
+bx 5
+bx 4
+bx 3
+02
+bx 1
+x0
+bx /
+x.
+bx -
+x,
+bx +
+x*
+bx )
+x(
+x'
+bx &
+x%
+bx $
+bx #
+x"
+b11 !
+$end
+#5
+b11111 p
+0j
+1q
+0?
+12
+#10
+1'
+02
+#15
+1A#
+08#
+1<#
+1;#
+b11111 V
+b11111 o
+b11111 |
+1D
+0[
+12
+#20
+b0 `
+b0 B"
+0{"
+b0 8"
+0w"
+b0 1"
+0s"
+b0 3"
+0o"
+b0 ;"
+0k"
+b0 <"
+0g"
+b0 6"
+0c"
+b0 7"
+0_"
+b0 ?"
+0["
+b0 9"
+0W"
+b0 5"
+0S"
+b0 >"
+0%#
+b0 2"
+0O"
+b0 4"
+0K"
+b0 :"
+0G"
+b1 O
+b1 _
+b1 )"
+b0 ="
+0}"
+b0 ~"
+0y"
+b0 z"
+0u"
+b0 v"
+0q"
+b0 r"
+0m"
+b0 n"
+0i"
+b0 j"
+0e"
+b0 f"
+0a"
+b0 b"
+0]"
+b0 ^"
+0Y"
+b0 Z"
+0U"
+b0 V"
+0Q"
+b0 R"
+0##
+b0 $#
+0M"
+b0 N"
+0I"
+b0 J"
+b1 0"
+b0 +"
+0E"
+b0 /"
+b0 ,"
+b0 ."
+b0 F"
+b0 %"
+b0 >#
+b0 @#
+b0 7#
+b0 :#
+b0 C#
+b0 |"
+b0 x"
+b0 t"
+b0 p"
+b0 l"
+b0 h"
+b0 d"
+b0 `"
+b0 \"
+b0 X"
+b0 T"
+b0 P"
+b0 "#
+b0 L"
+b0 H"
+b0 D"
+b0 +
+b0 3
+b0 C
+b0 2#
+0c
+b0 b
+b0 ^
+b0 s
+b0 n
+b0 {
+b0 y
+b0 $"
+b0 ""
+b0 J
+b0 Y
+b0 1#
+b0 4#
+b0 /#
+b0 3#
+00#
+b0 G
+b0 X
+b0 f
+b0 }
+b0 =#
+0K
+b0 F
+b0 U
+b0 d
+b0 ~
+b0 ?#
+b0 1
+b0 I
+b0 9#
+b0 D#
+1.
+10
+b0 6#
+b0 B#
+0l
+b0 x
+b0 Z
+b0 m
+b0 ("
+b0 >
+b0 N
+b0 z
+b0 -#
+b0 M
+b0 \
+b0 h
+b0 '#
+0L
+b0 #
+b0 @
+b0 Q
+b0 u
+b0 I#
+1a
+b0 &
+b0 B
+b0 S
+b0 r
+b0 H#
+1"
+1%
+1P
+b0 #"
+b0 &"
+b0 W
+b0 e
+b0 !"
+b0 -"
+b0 @"
+b0 T
+b0 g
+b0 *"
+b0 C"
+0'
+02
+#25
+b1001 G#
+12
+#30
+02
+#35
+b1000 G#
+12
+#40
+02
+#45
+b111 G#
+12
+#50
+02
+#55
+b110 G#
+12
+#60
+02
+#65
+b101 G#
+12
+#70
+02
+#75
+b100 G#
+12
+#80
+02
+#85
+b11 G#
+12
+#90
+02
+#95
+b10 G#
+12
+#100
+02
+#105
+b1 G#
+12
+#110
+02
+#115
+b0 G#
+12
+#120
+1'
+02
+#125
+bx &"
+bx M
+bx \
+bx h
+bx '#
+xL
+bx #
+bx @
+bx Q
+bx u
+bx I#
+x"
+x%
+1E
+12
+#130
+02
+#135
+12
+#140
+b0x00000000 +
+b0x00000000 3
+b0x00000000 C
+b0x00000000 2#
+0,#
+b0 :
+b0 (#
+0.#
+b0 )
+b0 5
+b0 =
+b0 +#
+b0 -
+b0 4
+0(
+0,
+0*
+02
+#145
+12
+#150
+b11 9
+b100 8
+02
+#155
+12
+#160
+b0 +
+b0 3
+b0 C
+b0 2#
+b1 :
+b1 (#
+b11 )
+b11 5
+b11 =
+b11 +#
+b100 -
+b100 4
+1(
+1*
+02
+#165
+b11 J
+b11 Y
+b11 1#
+b11 4#
+12
+#170
+1.#
+1,
+02
+#175
+12
+#180
+b0x00000000 +
+b0x00000000 3
+b0x00000000 C
+b0x00000000 2#
+b0 :
+b0 (#
+0.#
+b0 )
+b0 5
+b0 =
+b0 +#
+b0 -
+b0 4
+0(
+0,
+0*
+02
+#185
+12
+#190
+b1 9
+b0 8
+02
+#195
+12
+#200
+b1 )
+b1 5
+b1 =
+b1 +#
+1(
+1*
+02
+#205
+b1 y
+0q
+1?
+12
+#210
+1.#
+1,
+02
+#215
+b100 7#
+0;#
+b1 C#
+0q
+0D
+b1 x
+12
+#220
+0.#
+b0 )
+b0 5
+b0 =
+b0 +#
+0(
+0,
+0*
+02
+#225
+b10 C#
+1;#
+0q
+00
+b100 6#
+b1 B#
+0?
+12
+#230
+02
+#235
+b1111000000000000 >#
+b11010010111111100010100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 @#
+0A#
+18#
+b1111 C#
+b11010010111111100010100000000000 /
+b11010010111111100010100000000000 H
+b11010010111111100010100000000000 5#
+b11010010111111100010100000000000 F#
+10
+b10 B#
+12
+#240
+02
+#245
+b100000 $"
+b100 %"
+b10 y
+1q
+b1101001011111110001010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 ""
+1A#
+08#
+b1111000000000000 G
+b1111000000000000 X
+b1111000000000000 f
+b1111000000000000 }
+b1111000000000000 =#
+0E
+1K
+b11010010111111100010100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 F
+b11010010111111100010100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 U
+b11010010111111100010100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 d
+b11010010111111100010100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 ~
+b11010010111111100010100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 ?#
+b1111 B#
+12
+#250
+02
+#255
+1c
+b100 b
+b110 ^
+b11 y
+b10111111100010100000000000000000000000000000000000000000000000000000000000000000 n
+1E
+0K
+1l
+1D
+b10 x
+b100000 #"
+b1101001011111110001010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 W
+b1101001011111110001010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 e
+b1101001011111110001010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 !"
+12
+#260
+02
+#265
+b101 v"
+1w"
+1y"
+b1110 z"
+b10 `
+1{"
+b111 O
+b111 _
+b111 )"
+b1111 A"
+b11111100101 B"
+b111 8"
+b1111110 1"
+b11111100101 3"
+b111111001010000 ;"
+b1111110010100000000 <"
+b11111100101000000000000 6"
+b111111001010000000000000000 7"
+b1111110010100000000000000000000 ?"
+b11111100101000000000000000000000000 9"
+b111111001010000000000000000000000000000 5"
+b1111110010100000000000000000000000000000000 >"
+b11111100101000000000000000000000000000000000000 2"
+b111111001010000000000000000000000000000000000000000 4"
+b1111110010100000000000000000000000000000000000000000000 :"
+b11111100101000000000000000000000000000000000000000000000000 ="
+b111 0"
+b11 +"
+1}"
+b111111001010000000000000000000000000000000000000000000000000000 /"
+b111111001010000000000000000000000000000000000000000000000000000 ,"
+b111111001010000000000000000000000000000000000000000000000000000 ."
+b111 ~"
+b10 p
+b100 y
+1j
+b110 {
+b10111 |"
+b11110 x"
+b101 t"
+b11 x
+b10111111100010100000000000000000000000000000000000000000000000000000000000000000 Z
+b10111111100010100000000000000000000000000000000000000000000000000000000000000000 m
+b10111111100010100000000000000000000000000000000000000000000000000000000000000000 ("
+12
+#270
+02
+#275
+b1011 $"
+b0 ""
+b101 y
+b11111 p
+0j
+b10 V
+b10 o
+b10 |
+b100 x
+1[
+b110 >
+b110 N
+b110 z
+b110 -#
+12
+#280
+02
+#285
+0c
+b0 b
+b0 ^
+b110 y
+b0 n
+b1111 -"
+b1111 @"
+b11111100101 T
+b11111100101 g
+b11111100101 *"
+b11111100101 C"
+b1011 #"
+b0 W
+b0 e
+b0 !"
+b11111 V
+b11111 o
+b11111 |
+b101 x
+0[
+12
+#290
+02
+#295
+b0 `
+0{"
+b0 8"
+0w"
+b1 O
+b1 _
+b1 )"
+b0 1"
+b101 A"
+b0 B"
+b0 3"
+b0 ;"
+b0 <"
+b0 6"
+b0 7"
+b0 ?"
+b0 9"
+b0 5"
+b0 >"
+b0 2"
+b0 4"
+b0 :"
+b0 ="
+0}"
+b0 ~"
+b1 0"
+b0 +"
+0y"
+b0 z"
+b0 /"
+b0 ,"
+b0 ."
+b0 v"
+b111 y
+b0 |"
+b0 x"
+b0 t"
+b110 x
+b0 Z
+b0 m
+b0 ("
+12
+#300
+02
+#305
+b111 x
+12
+#310
+02
+#315
+12
+#320
+02
+#325
+12
+#330
+02
+#335
+12
+#340
+02
+#345
+12
+#350
+02
+#355
+12
+#360
+02
+#365
+12
+#370
+02
+#375
+12
+#380
+02
+#385
+12
+#390
+02
+#395
+12
+#400
+02
+#405
+12
+#410
+02
+#415
+12
+#420
+02
+#425
+12
+#430
+02
+#435
+12
+#440
+02
+#445
+12
+#450
+02
+#455
+12
+#460
+02
+#465
+12
+#470
+02
+#475
+12
+#480
+02
+#485
+12
+#490
+02
+#495
+12
+#500
+02
+#505
+12
+#510
+02
+#515
+12
+#520
+02
+#525
+12
+#530
+02
+#535
+12
+#540
+02
+#545
+12
+#550
+02
+#555
+12
+#560
+02
+#565
+12
+#570
+02
+#575
+12
+#580
+02
+#585
+12
+#590
+02
+#595
+12
+#600
+02
+#605
+12
+#610
+02
+#615
+12
+#620
+02
+#625
+12
+#630
+02
+#635
+12
+#640
+02
+#645
+12
+#650
+02
+#655
+12
+#660
+02
+#665
+12
+#670
+02
+#675
+12
+#680
+02
+#685
+12
+#690
+02
+#695
+12
+#700
+02
+#705
+12
+#710
+02
+#715
+12
+#720
+02
