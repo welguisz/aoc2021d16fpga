@@ -67,6 +67,7 @@ wire[15:0] instruction_valid_bytes;
 wire done;
 wire[63:0] bits_value;
 wire[15:0] version_sum;
+wire[15:0] bit_counter;
 
 wire       mem_req_b;
 wire       mem_ack_b;
@@ -98,7 +99,8 @@ bits_regs bits_regs(
     .done (done),
     .bits_value (bits_value),
     .bits_enable (1'b0),
-    .version_sum(version_sum)
+    .version_sum(version_sum),
+    .bit_counter(bit_counter)
 );
 
 
@@ -141,6 +143,7 @@ bits_core bits_core(
     .done (done),
     .version_sum (version_sum),
     .bits_value (bits_value),
+    .bit_counter(bit_counter),
 
     //inputs
     //System Inputs

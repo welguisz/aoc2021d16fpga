@@ -11,6 +11,7 @@ module bits_core(
     done,
     version_sum,
     bits_value,
+    bit_counter,
 
     //inputs
     //System Inputs
@@ -40,6 +41,7 @@ output       mem_req_b;
 output       done;
 output[15:0] version_sum;
 output[63:0] bits_value;
+output[15:0] bit_counter;
 
 
 input        clk;
@@ -112,6 +114,7 @@ bits_instruction_cache bits_instruction_cache(
    //instruction cache
    .instruction_cache (instruction_cache_word),
    .space_available (space_available),
+   .bit_counter (bit_counter),
 
    //inputs
    .clk (clk),
