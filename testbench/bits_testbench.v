@@ -107,6 +107,7 @@ assign expectedBytes = imem.mem[1023];
 reg[31:0] rdata;
 reg[63:0] bits_value;
 reg[15:0] version_sum;
+reg[9:0] count;
 
 initial begin
    rdata = 32'h0;
@@ -120,7 +121,8 @@ initial begin
    @(negedge clk);
    apb_driver.write(8'h00,32'h01);
    apb_driver.idle();
-   while(~rdata[8])
+   count = 8'h00;
+   while(~rdata[8] && (count <= 10'h3e8))
      begin
         @(negedge clk);
         @(negedge clk);
@@ -128,6 +130,7 @@ initial begin
         @(negedge clk);
         apb_driver.read(8'h00,rdata);
         apb_driver.idle();
+        count = count + 8'h01;
      end
    apb_driver.read(8'h08,rdata);
    version_sum = rdata[15:0];
@@ -136,8 +139,8 @@ initial begin
    apb_driver.idle();
    apb_driver.read(8'h14,bits_value[31:0]);
    apb_driver.idle();
-   $display("Version Sum: %4h",version_sum);
-   $display("Bits Value: %16h",bits_value);
+   $display("Version Sum: %4h (%d)",version_sum, version_sum);
+   $display("Bits Value: %16h (%d)",bits_value, bits_value);
    @(negedge clk);
    @(negedge clk);
    @(negedge clk);
