@@ -28,6 +28,7 @@ module bits_regs(
     bits_value,
     bits_enable,
     version_sum,
+    bit_counter
 );
 
 output       pready;
@@ -49,6 +50,7 @@ input        done;
 input[63:0]  bits_value;
 input        bits_enable;
 input[15:0]  version_sum;
+input[15:0]  bit_counter;
 
 reg          start;
 reg[15:0]    expected_bytes;
@@ -68,7 +70,7 @@ assign pslverr = 1'b0;  // No errors from this peripheral.
 assign write_cycle = psel & penable & pwrite;
 assign read_cycle = psel & penable & ~pwrite;
 
-always @(read_cycle or done or version_sum_latched or bits_value_latched or paddr)
+always @(read_cycle or done or version_sum_latched or bits_value_latched or paddr or bit_counter)
   begin
      prdata = 31'h0;
      case(paddr)
@@ -83,6 +85,10 @@ always @(read_cycle or done or version_sum_latched or bits_value_latched or padd
         6'h02 :
            begin
               prdata = {16'h0,version_sum_latched};
+           end
+        6'h03 :
+           begin
+              prdata = {16'h0,bit_counter};
            end
         6'h04 :
            begin

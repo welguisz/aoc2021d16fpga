@@ -2,6 +2,7 @@ module bits_instruction_cache(
    //instruction cache
    instruction_cache,
    space_available,
+   bit_counter,
 
    //inputs
    clk,
@@ -19,6 +20,7 @@ module bits_instruction_cache(
 
 output [255:0] instruction_cache;
 output         space_available;
+output [15:0]  bit_counter;
 
 input          clk;
 input          resetB;
@@ -56,6 +58,8 @@ reg [2:0]      state;
 reg [2:0]      state_next;
 reg [8:0]      instruction_size;
 reg [8:0]      instruction_size_next;
+reg [15:0]     bit_counter;
+reg [15:0]     bit_counter_next;
 wire           space_available;
 
 parameter IDLE = 3'b000;
@@ -73,101 +77,120 @@ always @(valid_bytes)
   end
 
 always @(instruction_cache or instruction_process or mem_req_b or mem_ack_b or instruction_word
-         or instruction_size_read)
+         or instruction_size_read or bit_counter)
   begin
      instruction_cache_next = instruction_cache;
      instruction_size_next = instruction_size;
+     bit_counter_next = bit_counter;
      if (instruction_process < 5'h12) begin
         case (instruction_process)
            5'h00 :
              begin
                instruction_cache_next = {instruction_cache[244:0],11'h0};
                instruction_size_next = instruction_size - 8'h0b;
+               bit_counter_next = bit_counter + 16'h000b;
              end
            5'h01 :
              begin
                instruction_cache_next = {instruction_cache[239:0],16'h0};
                instruction_size_next = instruction_size - 8'h10;
+               bit_counter_next = bit_counter + 16'h0010;
              end
            5'h02 :
              begin
                instruction_cache_next = {instruction_cache[234:0],21'h0};
                instruction_size_next = instruction_size - 8'h15;
+               bit_counter_next = bit_counter + 16'h0015;
              end
            5'h03 :
              begin
                instruction_cache_next = {instruction_cache[229:0],26'h0};
                instruction_size_next = instruction_size - 8'h1a;
+               bit_counter_next = bit_counter + 16'h001a;
              end
            5'h04 :
              begin
                instruction_cache_next = {instruction_cache[224:0],31'h0};
                instruction_size_next = instruction_size - 8'h1f;
+               bit_counter_next = bit_counter + 16'h001f;
              end
            5'h05 :
              begin
                instruction_cache_next = {instruction_cache[219:0],36'h0};
                instruction_size_next = instruction_size - 8'h24;
+               bit_counter_next = bit_counter + 16'h0024;
              end
            5'h06 :
              begin
                instruction_cache_next = {instruction_cache[214:0],41'h0};
                instruction_size_next = instruction_size - 8'h29;
+               bit_counter_next = bit_counter + 16'h0029;
              end
            5'h07 :
              begin
                instruction_cache_next = {instruction_cache[209:0],46'h0};
                instruction_size_next = instruction_size - 8'h2e;
+               bit_counter_next = bit_counter + 16'h002e;
              end
            5'h08 :
              begin
                instruction_cache_next = {instruction_cache[204:0],51'h0};
                instruction_size_next = instruction_size - 8'h33;
+               bit_counter_next = bit_counter + 16'h0033;
              end
            5'h09 :
              begin
                instruction_cache_next = {instruction_cache[199:0],56'h0};
                instruction_size_next = instruction_size - 8'h38;
+               bit_counter_next = bit_counter + 16'h0038;
              end
            5'h0a :
              begin
                instruction_cache_next = {instruction_cache[194:0],61'h0};
                instruction_size_next = instruction_size - 8'h3d;
+               bit_counter_next = bit_counter + 16'h003d;
              end
            5'h0b :
              begin
                instruction_cache_next = {instruction_cache[189:0],66'h0};
                instruction_size_next = instruction_size - 8'h42;
+               bit_counter_next = bit_counter + 16'h0042;
              end
            5'h0c :
              begin
                instruction_cache_next = {instruction_cache[184:0],71'h0};
                instruction_size_next = instruction_size - 8'h47;
+               bit_counter_next = bit_counter + 16'h0047;
              end
            5'h0d :
              begin
                instruction_cache_next = {instruction_cache[179:0],76'h0};
                instruction_size_next = instruction_size - 8'h4c;
+               bit_counter_next = bit_counter + 16'h004c;
              end
            5'h0e :
              begin
                instruction_cache_next = {instruction_cache[174:0],81'h0};
                instruction_size_next = instruction_size - 8'h51;
+               bit_counter_next = bit_counter + 16'h0051;
              end
            5'h0f :
              begin
                instruction_cache_next = {instruction_cache[169:0],86'h0};
                instruction_size_next = instruction_size - 8'h56;
+               bit_counter_next = bit_counter + 16'h0056;
              end
            5'h10 :
              begin
                instruction_cache_next = {instruction_cache[233:0],22'h0};
                instruction_size_next = instruction_size - 8'h16;
+               bit_counter_next = bit_counter + 16'h0016;
              end
            5'h11 :
              begin
                instruction_cache_next = {instruction_cache[237:0],18'h0};
                instruction_size_next = instruction_size - 8'h12;
+               bit_counter_next = bit_counter + 16'h0012;
              end
         endcase
      end
@@ -813,6 +836,11 @@ always @(instruction_cache or instruction_process or mem_req_b or mem_ack_b or i
                instruction_cache_next = {instruction_cache[255:129], instruction_word,1'h0};
                instruction_size_next = instruction_size + {instruction_size_read[4:0],3'b000};
              end
+           9'h7F :
+             begin
+               instruction_cache_next = {instruction_cache[255:128], instruction_word};
+               instruction_size_next = instruction_size + {instruction_size_read[4:0],3'b000};
+             end
            default :
              begin
                instruction_cache_next = {instruction_cache[255:128], instruction_word};
@@ -828,11 +856,13 @@ always @(posedge clk or negedge resetB)
        instruction_cache <= 256'h0;
        state <= IDLE;
        instruction_size <= 9'h000;
+       bit_counter <= 16'h0;
     end
     else begin
        instruction_cache <= instruction_cache_next;
        state <= state_next;
        instruction_size <= instruction_size_next;
+       bit_counter <= bit_counter_next;
     end
   end
 
