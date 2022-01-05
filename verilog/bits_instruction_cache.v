@@ -77,7 +77,7 @@ always @(instruction_cache or instruction_process or mem_req_b or mem_ack_b or i
   begin
      instruction_cache_next = instruction_cache;
      instruction_size_next = instruction_size;
-     if (instruction_process <= 5'h12) begin
+     if (instruction_process < 5'h12) begin
         case (instruction_process)
            5'h00 :
              begin
@@ -813,9 +813,9 @@ always @(instruction_cache or instruction_process or mem_req_b or mem_ack_b or i
                instruction_cache_next = {instruction_cache[255:129], instruction_word,1'h0};
                instruction_size_next = instruction_size + {instruction_size_read[4:0],3'b000};
              end
-           9'h7F :
+           default :
              begin
-               instruction_cache_next = {instruction_cache[255:128], instruction_word,112'h0};
+               instruction_cache_next = {instruction_cache[255:128], instruction_word};
                instruction_size_next = instruction_size + {instruction_size_read[4:0],3'b000};
              end
         endcase

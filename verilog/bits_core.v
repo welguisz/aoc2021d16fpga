@@ -101,6 +101,8 @@ bits_fsm bits_fsm(
    .space_available(space_available),
    .mem_ack_b (mem_ack_b),
 
+    .smem_rdata (smem_rdata),
+
    //From number decoder
    .decodedNumber(number),
    .validNibbles(validNibbles)

@@ -96,13 +96,12 @@ begin
              imem_ceb_next = 1'b0;
              imem_web_next = 1'b1;
              imem_addr_next = imem_addr;
-             byteCounter_next = byteCounter + 16'h0004;
           end
        end
      READ_WAIT:
        begin
           state_next = READ_INST0;
-          if (byteCounter <= expectedBytes) begin
+          if (byteCounter < expectedBytes) begin
              state_next = READ_INST0;
              imem_ceb_next = 1'b0;
              imem_web_next = 1'b1;
@@ -112,7 +111,7 @@ begin
        end
      READ_INST0:
        begin
-          if (byteCounter <= expectedBytes) begin
+          if (byteCounter < expectedBytes) begin
              state_next = READ_INST1;
              imem_ceb_next = 1'b0;
              imem_web_next = 1'b1;
@@ -129,7 +128,7 @@ begin
        end
      READ_INST1:
        begin
-          if (byteCounter <= expectedBytes) begin
+          if (byteCounter < expectedBytes) begin
              state_next = READ_INST2;
              imem_ceb_next = 1'b0;
              imem_web_next = 1'b1;
@@ -146,9 +145,9 @@ begin
        end
      READ_INST2:
        begin
-          if (byteCounter <= expectedBytes) begin
+          if (byteCounter < expectedBytes) begin
              state_next = READ_INST3;
-             imem_ceb_next = 1'b0;
+             imem_ceb_next = 1'b1;
              imem_web_next = 1'b1;
              imem_addr_next = imem_addr + 10'h1;
              byteCounter_next = byteCounter + 16'h0004;
@@ -163,8 +162,9 @@ begin
        end
      READ_INST3:
        begin
-          if (byteCounter <= expectedBytes) begin
+          if (byteCounter < expectedBytes) begin
              state_next = FINISH_RD;
+             mem_ack_b_next = 1'b0;
           end
           else begin
              state_next = DONE;
@@ -176,11 +176,10 @@ begin
        end
      FINISH_RD:
        begin
-          if (byteCounter <= expectedBytes) begin
+          if (byteCounter < expectedBytes) begin
              state_next = READ_INST1;
-             imem_ceb_next = 1'b0;
+             imem_ceb_next = 1'b1;
              imem_web_next = 1'b1;
-             imem_addr_next = imem_addr + 10'h1;
              state_next = IDLE;
           end
           else begin
